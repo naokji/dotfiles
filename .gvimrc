@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 03-Feb-2016.
+" Last Change: 16-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -107,7 +107,7 @@ set guioptions-=a
 if s:iswin
   autocmd VimEnter * set transparency=230
 else
-  set transparency=10
+  set transparency=5
 endif
 "
 " TAB等の表示色の指定 2003-06-17

@@ -63,7 +63,11 @@ set number
 set list
 " どの文字でタブや改行を表示するかを設定
 "set listchars=tab:\|-,extends:<,trail:+,eol:<
-set listchars=eol:¬,tab:▸-,extends:<,trail:+
+if s:iswin
+  set listchars=eol:¬,tab:▸-,extends:<,trail:+
+elseif s:ismac
+  set listchars=eol:¬,tab:>-,extends:<,trail:+
+endif
 " 長い行を折り返して表示 (nowrap:折り返さない)
 set nowrap
 
