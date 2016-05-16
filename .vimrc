@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 14-May-2016.
+" Last Change: 16-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -78,8 +78,8 @@ set noundofile
 "set directory=$HOME./vimbackup
 "set backupdir=$HOME./vimbackup
 if s:iswin
-  set directory=C:/vimbackup
-  set backupdir=C:/vimbackup
+  set directory=C:/_vimbackup
+  set backupdir=C:/_vimbackup
 " set undodir=C:/vimbackup
 elseif s:ismac
   set directory=$HOME/_vimbackup
@@ -89,8 +89,21 @@ endif
 
 set tags=tags;
 
+" デフォルトvimrc_exampleのtextwidth設定上書き
+autocmd FileType text setlocal textwidth=0
+
+
+
+
+
+
+
+
+let s:neobundle = 0
+if s:neobundle
 "---------------------------------------------------------------------------
-" NeoBundle
+" NeoBundle (begin)
+"---------------------------------------------------------------------------
 filetype off
 
 if has('vim_starting')
@@ -120,6 +133,14 @@ NeoBundle 'helino/vim-json'
 
 call neobundle#end()
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"---------------------------------------------------------------------------
+" NeoBundle (end)
+"---------------------------------------------------------------------------
+endif
+
 
 
 
@@ -128,23 +149,29 @@ call neobundle#end()
 
 
 "---------------------------------------------------------------------------
-"
-" Dein
-"
+" dein (begin)
+"---------------------------------------------------------------------------
 if &compatible
   set nocompatible
 endif
-set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+if s:iswin
+  set runtimepath+=~/vimfiles/dein/repos/github.com/Shougo/dein.vim
+elseif s:ismac
+  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+endif
 
-"call dein#begin(expand('~/.cache/dein'))
-call dein#begin(expand('~/.vim/dein'))
+if s:iswin
+  call dein#begin(expand('~/vimfiles/dein'))
+elseif s:ismac
+  call dein#begin(expand('~/.vim/dein'))
+endif
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
-...
 
 call dein#end()
-"
+"---------------------------------------------------------------------------
+" dein (end)
 "---------------------------------------------------------------------------
 
 
@@ -157,12 +184,11 @@ call dein#end()
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
 " NeoComplCache
 let g:neocomplcache_enable_at_startup = 1 "neocomplcacheを起動時に有効化
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
 
 " insert modeで開始
 let g:unite_enable_start_insert = 0
@@ -187,6 +213,8 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+runtime macros/editexisting.vim
 
 "---------------------------------------------------------------------------
 " 
