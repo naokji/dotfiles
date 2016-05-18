@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 16-May-2016.
+" Last Change: 18-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -172,6 +172,8 @@ endif
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
+
+call dein#add('scrooloose/nerdtree')
 
 call dein#end()
 "---------------------------------------------------------------------------
