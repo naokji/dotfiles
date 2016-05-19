@@ -173,6 +173,7 @@ endif
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
 
+call dein#add('rking/ag.vim')
 call dein#add('scrooloose/nerdtree')
 
 call dein#end()
@@ -242,7 +243,8 @@ endif
 "---------------------------------------------------------------------------
 endif
 
-runtime macros/editexisting.vim
+"runtime macros/editexisting.vim
+packadd! editexisting
 
 "---------------------------------------------------------------------------
 " 
