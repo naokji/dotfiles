@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 18-May-2016.
+" Last Change: 19-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -103,8 +103,8 @@ autocmd FileType text setlocal textwidth=0
 
 
 
-let s:neobundle = 0
-if s:neobundle
+let s:oldplugin = 0
+if s:oldplugin
 "---------------------------------------------------------------------------
 " NeoBundle (begin)
 "---------------------------------------------------------------------------
@@ -190,11 +190,31 @@ call dein#end()
 " Required:
 filetype plugin indent on
 
+"---------------------------------------------------------------------------
+" NeoComplete (begin)
+"---------------------------------------------------------------------------
+let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
+"---------------------------------------------------------------------------
+" NeoComplete (end)
+"---------------------------------------------------------------------------
+
+"---------------------------------------------------------------------------
+" NERDTree (begin)
+"---------------------------------------------------------------------------
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeShowHidden = 1
+"let g:NERDTreeIgnore = ['.[oa]$', '.(so)$', '.(tgz|gz|zip)$' ]
+let g:NERDTreeIgnore = ['\.meta$']
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"---------------------------------------------------------------------------
+" NERDTree (end)
+"---------------------------------------------------------------------------
+
+
+if s:oldplugin
+"---------------------------------------------------------------------------
 " NeoComplCache
 let g:neocomplcache_enable_at_startup = 1 "neocomplcacheを起動時に有効化
-
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
 
 " insert modeで開始
 let g:unite_enable_start_insert = 0
@@ -218,6 +238,8 @@ if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
+endif
+"---------------------------------------------------------------------------
 endif
 
 runtime macros/editexisting.vim

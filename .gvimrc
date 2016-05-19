@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 18-May-2016.
+" Last Change: 19-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -79,7 +79,8 @@ endif
 " ウインドウに関する設定:
 "
 " ウインドウの幅
-set columns=100
+"set columns=100
+set columns=128
 " ウインドウの高さ
 "set lines=95
 if s:iswin
