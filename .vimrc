@@ -215,6 +215,7 @@ let g:NERDTreeShowHidden = 1
 "let g:NERDTreeIgnore = ['.[oa]$', '.(so)$', '.(tgz|gz|zip)$' ]
 let g:NERDTreeIgnore = ['\.meta$']
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-f> :NERDTreeFind<CR>
 "---------------------------------------------------------------------------
 " NERDTree (end)
 "---------------------------------------------------------------------------
