@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 24-May-2016.
+" Last Change: 25-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -108,38 +108,7 @@ if s:oldplugin
 "---------------------------------------------------------------------------
 " NeoBundle (begin)
 "---------------------------------------------------------------------------
-filetype off
-
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/vimfiles/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/vimfiles/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/neocomplcache'
-" jellybeans カラースキーム
-"NeoBundle 'nanotech/jellybeans.vim'
-" Syntax
 NeoBundle 'helino/vim-json' 
-
-call neobundle#end()
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 "---------------------------------------------------------------------------
 " NeoBundle (end)
 "---------------------------------------------------------------------------
@@ -153,8 +122,8 @@ endif
 
 
 "---------------------------------------------------------------------------
-" dein (begin)
-"---------------------------------------------------------------------------
+" dein
+
 if &compatible
   set nocompatible
 endif
@@ -179,8 +148,7 @@ call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 
 call dein#end()
-"---------------------------------------------------------------------------
-" dein (end)
+
 "---------------------------------------------------------------------------
 
 
@@ -197,89 +165,54 @@ filetype plugin indent on
 
 
 "---------------------------------------------------------------------------
-" NeoComplete (begin)
-"---------------------------------------------------------------------------
+" NeoComplete
+
 let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
-"---------------------------------------------------------------------------
-" NeoComplete (end)
+
 "---------------------------------------------------------------------------
 
 
 
 
 "---------------------------------------------------------------------------
-" NERDTree (begin)
-"---------------------------------------------------------------------------
+" NERDTree
+
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeShowHidden = 1
 "let g:NERDTreeIgnore = ['.[oa]$', '.(so)$', '.(tgz|gz|zip)$' ]
 let g:NERDTreeIgnore = ['\.meta$']
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <silent><C-f> :NERDTreeFind<CR>
-"---------------------------------------------------------------------------
-" NERDTree (end)
+
 "---------------------------------------------------------------------------
 
 
 
 
 "---------------------------------------------------------------------------
-" CtrlP (begin)
-"---------------------------------------------------------------------------
+"
+" CtrlP
+"
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_custom_ignore = '\.meta$'
 "---------------------------------------------------------------------------
-" CtrlP (end)
-"---------------------------------------------------------------------------
 
 
 
 
 "---------------------------------------------------------------------------
-" lightline (begin)
-"---------------------------------------------------------------------------
+"
+" lightline
+"
 "let g:lightline = {
 "    \ 'colorscheme': 'jellybeans',
 "    \ 'separator': { 'left': '>', 'right': '<' },
 "    \ 'subseparator': { 'left': '>', 'right': '<' }
 "    \ }
 "---------------------------------------------------------------------------
-" lightline (end)
-"---------------------------------------------------------------------------
 
 
 
-
-if s:oldplugin
-"---------------------------------------------------------------------------
-" NeoComplCache
-let g:neocomplcache_enable_at_startup = 1 "neocomplcacheを起動時に有効化
-
-" insert modeで開始
-let g:unite_enable_start_insert = 0
-
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-" grep検索
-"nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,g  :<C-u>Unite grep -buffer-name=search-buffer<CR>
-
-" カーソル位置の単語をgrep検索
-"nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
-" grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-"---------------------------------------------------------------------------
-endif
 
 "runtime macros/editexisting.vim
 packadd! editexisting
