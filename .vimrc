@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 23-May-2016.
+" Last Change: 24-May-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -175,8 +175,8 @@ call dein#add('Shougo/neocomplete.vim')
 
 call dein#add('rking/ag.vim')
 call dein#add('scrooloose/nerdtree')
-"call dein#add('kein/ctrlp.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('itchyny/lightline.vim')
 
 call dein#end()
 "---------------------------------------------------------------------------
@@ -230,6 +230,21 @@ let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_custom_ignore = '\.meta$'
 "---------------------------------------------------------------------------
 " CtrlP (end)
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+" lightline (begin)
+"---------------------------------------------------------------------------
+"let g:lightline = {
+"    \ 'colorscheme': 'jellybeans',
+"    \ 'separator': { 'left': '>', 'right': '<' },
+"    \ 'subseparator': { 'left': '>', 'right': '<' }
+"    \ }
+"---------------------------------------------------------------------------
+" lightline (end)
 "---------------------------------------------------------------------------
 
 
