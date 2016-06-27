@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 25-May-2016.
+" Last Change: 22-Jun-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -76,7 +76,7 @@ set nowrap
 "
 " バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
 "set nobackup
-set swapfile
+set noswapfile
 set backup
 set noundofile
 "set directory=$HOME./vimbackup
