@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 22-Jun-2016.
+" Last Change: 16-Jul-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -37,7 +37,7 @@ let s:iswin = has('win32') || has('win64') || has('win32unix')
 let s:ismac = has('mac')
 
 " エラーメッセージ表示時のbeep音をOFF
-set noerrorbells
+"set noerrorbells
 
 "---------------------------------------------------------------------------
 " 日本語対応のための設定:

@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 19-May-2016.
+" Last Change: 16-Jul-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -148,5 +148,10 @@ endif
 "---------------------------------------------------------------------------
 " ステータスラインに文字コードと改行文字の種別を表示
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+"---------------------------------------------------------------------------
+" beep音をOFF
+set visualbell t_vb=
+set noerrorbells
 
 " end of _gvimrc
