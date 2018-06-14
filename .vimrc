@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 14-Nov-2016.
+" Last Change: 14-Jun-2018.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -125,6 +125,34 @@ endif
 
 
 "---------------------------------------------------------------------------
+" vim-plug
+
+if s:iswin
+  call plug#begin('~/vimfiles/plugged')
+elseif s:ismac
+  call plug#begin('~/.vim/plugged')
+endif
+
+Plug 'rking/ag.vim'
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+
+Plug 'Shougo/neocomplete.vim'
+
+call plug#end()
+
+"---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+"---------------------------------------------------------------------------
 " dein
 
 if &compatible
@@ -142,13 +170,15 @@ elseif s:ismac
   call dein#begin(expand('~/.vim/dein'))
 endif
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/neocomplete.vim')
+"call dein#add('Shougo/dein.vim')
+"call dein#add('Shougo/neocomplete.vim')
 
-call dein#add('rking/ag.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('itchyny/lightline.vim')
+"call dein#add('rking/ag.vim')
+"call dein#add('scrooloose/nerdtree')
+"call dein#add('ctrlpvim/ctrlp.vim')
+"call dein#add('junegunn/fzf', { 'build': './install' })
+"call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+"call dein#add('itchyny/lightline.vim')
 
 call dein#end()
 
