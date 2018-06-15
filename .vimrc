@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 14-Jun-2018.
+" Last Change: 15-Jun-2018.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -106,24 +106,6 @@ autocmd FileType python setl noexpandtab tabstop=4
 
 
 
-let s:oldplugin = 0
-if s:oldplugin
-"---------------------------------------------------------------------------
-" NeoBundle (begin)
-"---------------------------------------------------------------------------
-NeoBundle 'helino/vim-json' 
-"---------------------------------------------------------------------------
-" NeoBundle (end)
-"---------------------------------------------------------------------------
-endif
-
-
-
-
-
-
-
-
 "---------------------------------------------------------------------------
 " vim-plug
 
@@ -142,45 +124,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
-
-"---------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-"---------------------------------------------------------------------------
-" dein
-
-if &compatible
-  set nocompatible
-endif
-if s:iswin
-  set runtimepath+=~/vimfiles/dein/repos/github.com/Shougo/dein.vim
-elseif s:ismac
-  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-endif
-
-if s:iswin
-  call dein#begin(expand('~/vimfiles/dein'))
-elseif s:ismac
-  call dein#begin(expand('~/.vim/dein'))
-endif
-
-"call dein#add('Shougo/dein.vim')
-"call dein#add('Shougo/neocomplete.vim')
-
-"call dein#add('rking/ag.vim')
-"call dein#add('scrooloose/nerdtree')
-"call dein#add('ctrlpvim/ctrlp.vim')
-"call dein#add('junegunn/fzf', { 'build': './install' })
-"call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-"call dein#add('itchyny/lightline.vim')
-
-call dein#end()
 
 "---------------------------------------------------------------------------
 
