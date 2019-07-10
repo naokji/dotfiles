@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 15-Jun-2018.
+" Last Change: 10-Jul-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -170,7 +170,8 @@ nnoremap <silent><C-f> :NERDTreeFind<CR>
 "
 " CtrlP
 "
-let g:ctrlp_working_path_mode = 'a'
+"let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\.meta$'
 "---------------------------------------------------------------------------
 
