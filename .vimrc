@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 10-Jul-2019.
+" Last Change: 15-Nov-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -123,6 +123,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'osyo-manga/vim-over'
 
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.vim'
 
 call plug#end()
 
@@ -145,6 +146,16 @@ filetype plugin indent on
 " NeoComplete
 
 let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
+
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+" deoplete
+
+let g:deoplete#enable_at_startup = 1 "deopleteを起動時に有効化
 
 "---------------------------------------------------------------------------
 
