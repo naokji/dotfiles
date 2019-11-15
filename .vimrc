@@ -123,7 +123,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'osyo-manga/vim-over'
 
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/deoplete.vim'
 
 call plug#end()
 
@@ -146,16 +145,6 @@ filetype plugin indent on
 " NeoComplete
 
 let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
-
-"---------------------------------------------------------------------------
-
-
-
-
-"---------------------------------------------------------------------------
-" deoplete
-
-let g:deoplete#enable_at_startup = 1 "deopleteを起動時に有効化
 
 "---------------------------------------------------------------------------
 
