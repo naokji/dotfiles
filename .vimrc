@@ -3,7 +3,7 @@
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim7用試作
 "
-" Last Change: 14-Jan-2020.
+" Last Change: 29-Aug-2021.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -108,7 +108,7 @@ autocmd FileType python setl noexpandtab tabstop=4
 
 "---------------------------------------------------------------------------
 " vim-plug
-
+"
 if s:iswin
   call plug#begin('~/vimfiles/plugged')
 elseif s:ismac
@@ -117,16 +117,21 @@ endif
 
 Plug 'rking/ag.vim'
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
+Plug 'lambdalisue/fern.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'osyo-manga/vim-over'
 
-Plug 'Shougo/neocomplete.vim'
-"Plug 'kovisoft/slimv'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
+
+"Plug 'Shougo/neocomplete.vim'
+Plug 'kovisoft/slimv'
 
 call plug#end()
-
 "---------------------------------------------------------------------------
 
 
@@ -144,9 +149,8 @@ filetype plugin indent on
 
 "---------------------------------------------------------------------------
 " NeoComplete
-
-let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
-
+"
+"let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
 "---------------------------------------------------------------------------
 
 
@@ -154,26 +158,46 @@ let g:neocomplete#enable_at_startup = 1 "neocompleteを起動時に有効化
 
 "---------------------------------------------------------------------------
 " NERDTree
-
-let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeShowHidden = 1
-"let g:NERDTreeIgnore = ['.[oa]$', '.(so)$', '.(tgz|gz|zip)$' ]
-let g:NERDTreeIgnore = ['\.meta$']
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <silent><C-f> :NERDTreeFind<CR>
-
-"---------------------------------------------------------------------------
-
-
-
-
-"---------------------------------------------------------------------------
 "
+"let g:NERDTreeShowBookmarks = 1
+"let g:NERDTreeShowHidden = 1
+""let g:NERDTreeIgnore = ['.[oa]$', '.(so)$', '.(tgz|gz|zip)$' ]
+"let g:NERDTreeIgnore = ['\.meta$']
+"nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"nnoremap <silent><C-f> :NERDTreeFind<CR>
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+" Fern
+"
+let g:fern#default_hidden=1
+let g:fern#default_exclude='\.meta$'
+" Ctrl+fでファイルツリーを表示/非表示する
+nnoremap <C-f> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
 " CtrlP
 "
 "let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\.meta$'
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+" asyncomplete
+"
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
 "---------------------------------------------------------------------------
 
 
