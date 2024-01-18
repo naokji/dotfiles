@@ -47,12 +47,19 @@ let &termencoding = &encoding
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,latin1
 
+" ※などの文字幅が正しくないことへの対処
+if exists('&ambiwidth')
+  set ambiwidth=double
+endif
+
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "
 " タブの画面上での幅
 set tabstop=4
 set shiftwidth=4  "自動インデントに影響
+" Backspaceで消せるもの
+set backspace=indent,eol,start
 
 "---------------------------------------------------------------------------
 " GUI固有ではない画面表示の設定:
@@ -115,28 +122,20 @@ elseif s:ismac
   call plug#begin('~/.vim/plugged')
 endif
 
-Plug 'rking/ag.vim'
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'scrooloose/nerdtree'
 Plug 'lambdalisue/fern.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'osyo-manga/vim-over'
 
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'mattn/vim-lsp-settings'
+Plug 'OmniSharp/omnisharp-vim'
 
-"Plug 'Shougo/neocomplete.vim'
-Plug 'kovisoft/slimv'
+Plug 'mattn/vimtweak'
+
+"Plug 'rking/ag.vim'
+"Plug 'kovisoft/slimv'
 
 call plug#end()
 "---------------------------------------------------------------------------
-
-
-
-
 
 
 
@@ -212,6 +211,17 @@ let g:asyncomplete_auto_completeopt = 0
 "    \ 'separator': { 'left': '>', 'right': '<' },
 "    \ 'subseparator': { 'left': '>', 'right': '<' }
 "    \ }
+set laststatus=2
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+" OmniSharp
+"
+"let g:OmniSharp_server_type = 'roslyn'
+"let g:OmniSharp_prefer_global_sln = 1
 "---------------------------------------------------------------------------
 
 

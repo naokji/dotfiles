@@ -106,9 +106,10 @@ set guioptions-=a
 "
 " 半透明
 if s:iswin
-  autocmd VimEnter * set transparency=230
-else
-  set transparency=5
+"  autocmd VimEnter * set transparency=230
+  autocmd guienter * call libcallnr("vimtweak64.dll", "SetAlpha", 230)
+"else
+"  set transparency=5
 endif
 "
 " TAB等の表示色の指定 2003-06-17
