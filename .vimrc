@@ -72,7 +72,7 @@ set list
 "set listchars=tab:\|-,extends:<,trail:+,eol:<
 if s:iswin
   set listchars=eol:¬,tab:▸-,extends:<,trail:+
-elseif s:ismac
+else
   set listchars=eol:¬,tab:>-,extends:<,trail:+
 endif
 " 長い行を折り返して表示 (nowrap:折り返さない)
@@ -100,11 +100,19 @@ endif
 
 set tags=tags;
 
-" デフォルトvimrc_exampleのtextwidth設定上書き
-autocmd FileType text setlocal textwidth=0
+"" デフォルトvimrc_exampleのtextwidth設定上書き
+"autocmd FileType text setlocal textwidth=0
 
-" Python
-autocmd FileType python setl noexpandtab tabstop=4
+"" Python
+"autocmd FileType python setl noexpandtab tabstop=4
+
+"---------------------------------------------------------------------------
+" コピペに関する設定:
+"
+"if s:iswin
+" source $VIMRUNTIME/mswin.vim
+" set clipboard=unnamed,autoselect
+"ndif
 
 
 
@@ -118,7 +126,7 @@ autocmd FileType python setl noexpandtab tabstop=4
 "
 if s:iswin
   call plug#begin('~/vimfiles/plugged')
-elseif s:ismac
+else
   call plug#begin('~/.vim/plugged')
 endif
 
@@ -142,6 +150,12 @@ call plug#end()
 
 " Required:
 filetype plugin indent on
+
+" デフォルトvimrc_exampleのtextwidth設定上書き
+autocmd FileType text setlocal textwidth=0
+
+" Python
+autocmd FileType python setl noexpandtab tabstop=4
 
 
 

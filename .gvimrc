@@ -79,15 +79,14 @@ endif
 " ウインドウに関する設定:
 "
 " ウインドウの幅
-"set columns=100
 set columns=128
 " ウインドウの高さ
-"set lines=95
-if s:iswin
-  set lines=95
-elseif s:ismac
-  set lines=85
-endif
+"if s:iswin
+"  set lines=95
+"elseif s:ismac
+"  set lines=85
+"endif
+set lines=85
 
 "---------------------------------------------------------------------------
 " マウスに関する設定:
